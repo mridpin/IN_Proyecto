@@ -85,32 +85,52 @@
                  chart.draw(data, options);
                  }
                  */
-                //BUBBLE
-                google.charts.load('current', {'packages': ['corechart']});
-                google.charts.setOnLoadCallback(drawSeriesChart);
+           //BUBBLE
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawSeriesChart);
 
-                function drawSeriesChart() {
+        function ajax_bubbleChart() {
+            var data = [];
+            data.push(['Boro', 'Población', 'Crímenes', 'Crimenes/Población', 'Densidad de población']);
 
-                    var data = google.visualization.arrayToDataTable([
-                        ['Boro', 'Life Expectancy', 'Fertility Rate', 'Region', 'Population'],
-                        ['BROOKLYN', 80.66, 1.67, 'North America', 33739900],
-                        ['MANHATTAN', 79.84, 1.36, 'Europe', 81902307],
-                        ['QUEENS', 78.6, 1.84, 'Europe', 5523095],
-                        ['BRONX', 72.73, 2.78, 'Middle East', 79716203],
-                        ['STATEN ISLAND', 80.05, 2, 'Europe', 61801570],
-                    ]);
-
-                    var options = {
-                        title: 'Correlation between life expectancy, fertility rate ' +
-                                'and population of some world countries (2010)',
-                        hAxis: {title: 'Life Expectancy'},
-                        vAxis: {title: 'Fertility Rate'},
-                        bubble: {textStyle: {fontSize: 11}}
-                    };
-
-                    var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
-                    chart.draw(data, options);
+            $.ajax({
+                type: 'POST',
+                async: false,
+                url: "ajax_bubbleChart.php",
+            }).done(function (input) {
+                var datos = JSON.parse(input);
+                for (var i = 0; i < datos.length; i++) {
+                    data.push([datos[i][0], parseInt(datos[i][1]), parseInt(datos[i][2]), parseFloat(datos[i][3]), parseFloat(datos[i][4])]);
                 }
+            });
+            return data;
+        }
+        function drawSeriesChart() {
+
+//                    var data = google.visualization.arrayToDataTable([
+//                        ['Boro', 'Eje X', 'Eje Y', 'Crime/Population', 'Population Density'],
+//                        ['BROOKLYN', 80.66, 1.67, 10, 33739900],
+//                        ['MANHATTAN', 79.84, 1.36, 12, 81902307],
+//                        ['QUEENS', 78.6, 1.84, 20, 5523095],
+//                        ['BRONX', 72.73, 2.78, 6, 79716203],
+//                        ['STATEN ISLAND', 80.05, 2, 15, 61801570],
+//                    ]);
+
+                    var data = google.visualization.arrayToDataTable(ajax_bubbleChart());
+
+            var options = {
+                title: 'Correlation between x axis, y axis, crime ' +
+                        'and population of NYC Boros',
+                hAxis: {title: 'Población'},
+                vAxis: {title: 'Crímines'},
+                bubble: {textStyle: {fontSize: 11}},
+                colorAxis: {colors: ['green', 'red']}
+            };
+
+            var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+            chart.draw(data, options);
+        }
+
 
 
                 //PIE
