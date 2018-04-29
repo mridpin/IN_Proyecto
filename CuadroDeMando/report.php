@@ -96,7 +96,7 @@
             $.ajax({
                 type: 'POST',
                 async: false,
-                url: "ajax_bubbleChart.php",
+                url: "ajax/ajax_bubbleChart.php",
             }).done(function (input) {
                 var datos = JSON.parse(input);
                 for (var i = 0; i < datos.length; i++) {

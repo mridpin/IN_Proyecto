@@ -3,7 +3,7 @@
 ini_set('memory_limit', '1024M');
 // Estructura de $data: [BORO, poblacion, crimenes, crime/population, densidad poblacion] 
 $data = [[]];
-$myfile = fopen("nyc_pop_by_boro.csv", "r");
+$myfile = fopen("../csv/nyc_pop_by_boro.csv", "r");
 $linea = fgets($myfile);
 $i = 0;
 while ($linea = fgets($myfile)) {
