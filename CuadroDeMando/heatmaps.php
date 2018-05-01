@@ -3,6 +3,7 @@ include 'header.php';
 ?>
 
 
+<div id="loading"></div>
 
 <div id="floating-panel">
             <p id="contador"></p>
@@ -67,7 +68,8 @@ include 'header.php';
 
             function getPoints() {
                 var points = [];
-
+                $('#loading').addClass("loading");
+                $('#loading').html('<img class="img-loading" src="img/bx_loader.gif" />');
                 $.ajax({
                     type: 'POST',
                     url: "ajax/ajax.php",
@@ -77,9 +79,12 @@ include 'header.php';
                             console.log(i);
                             //$("#contador").text(i + " de " + data.length);
                         }
+                        $('#loading').removeClass("loading");
+                        $('#loading').html('');
                     },
                     dataType: "json"
                 });
+                
                 return points;
             }
         </script>

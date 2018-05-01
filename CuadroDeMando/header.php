@@ -10,6 +10,24 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <style>
+
+            .loading {
+                position:absolute;
+                background-color:#fff;
+                opacity: 0.6;
+                z-index: 100;
+                width: 100%;
+                height: 100%;
+             }
+             .img-loading {
+                 position:absolute; /*El div debe tener la propiedad position distinta de static*/
+                top: 43%;
+                left:46%;
+                z-index: 1000;
+                
+                 height: 100px;
+                 width: 100px;
+             }
             /* Always set the map height explicitly to define the size of the div
              * element that contains the map. */
             #map {

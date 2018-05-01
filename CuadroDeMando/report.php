@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-4">
+        <!--<div class="col-xs-4">
             <div id="regions_div1" style="width: 100%; height: 200px;"></div>
-        </div>
-        <div class="col-xs-4">
+        </div>-->
+        <div class="col-xs-7">
             <div id="series_chart_div" style="width: 100%; height: 200px;"></div>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-5">
             <div id="piechart_3d" style="width: 100%; height: 200px;"></div>
         </div>
     </div>
