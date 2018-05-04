@@ -3,7 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CMI</title>
-
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -84,7 +85,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.php">Report <span class="sr-only">(current)</span></a></li>
         <li><a href="heatmaps.php">Heatmaps</a></li>
-        
+        <li><a href="map-police-stations.php">Police Stations Location</a></li>
       </ul>
       
       
