@@ -67,7 +67,7 @@
     </head>
       <body>
           
-          <nav class="navbar navbar-default">
+          <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -77,15 +77,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php">NYC Crimes</a>
+      <a class="navbar-brand active" href="index.php">NYC Crimes</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">Report <span class="sr-only">(current)</span></a></li>
-        <li><a href="heatmaps.php">Heatmaps</a></li>
+        <li><a href="index.php">Report <span class="sr-only">(current)</span></a></li>
+        <li><a href="heatmaps.php">Heatmaps*</a></li>
         <li><a href="map-police-stations.php">Police Stations Location</a></li>
+        <li><a href="map-police-stations.php">Offense custered*</a></li>
+        <li><a href="datamining.php">Prediction of Data Mining</a></li>
       </ul>
       
       

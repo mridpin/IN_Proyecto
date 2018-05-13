@@ -32,7 +32,7 @@ include 'header.php';
     }
 
     function ponerPunto(position) {
-        L.marker(position).addTo(map).bindPopup('Aqui hay una comisaria').openPopup();
+        L.marker(position).addTo(map).bindPopup('Here, there must be a police station').openPopup();
 
     }
 

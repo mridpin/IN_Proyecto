@@ -72,7 +72,7 @@ include 'header.php';
                 $('#loading').html('<img class="img-loading" src="img/bx_loader.gif" />');
                 $.ajax({
                     type: 'POST',
-                    url: "ajax/ajax.php",
+                    url: "ajax/ajax_report_map_dataset.php",
                     success: function (data) {
                         for (var i = 0; i < data.length; i++) {
                             points[i] = new google.maps.LatLng(parseFloat(data[i][0]), parseFloat(data[i][1]));

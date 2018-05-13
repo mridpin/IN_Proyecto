@@ -1,8 +1,5 @@
 <div class="container-fluid">
     <div class="row">
-        <!--<div class="col-xs-4">
-            <div id="regions_div1" style="width: 100%; height: 200px;"></div>
-        </div>-->
         <div class="col-xs-7">
             <div id="series_chart_div" style="width: 100%; height: 200px;"></div>
         </div>
@@ -21,70 +18,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        /*
-         $.ajax({
-         url: "https://data.cityofnewyork.us/resource/7x9x-zpz6.json?$where=lat_lon is not null",
-         //url: "https://data.cityofnewyork.us/resource/7x9x-zpz6.json?$select=law_cat_cd&$group=law_cat_cd",
-         //url: "https://data.cityofnewyork.us/resource/7x9x-zpz6.json?$select=ofns_desc&$group=ofns_desc",
-         type: "GET",
-         data: {
-         "$limit" : 10000,
-         "$$app_token" : "bjp8KrRvAPtuf809u1UXnI0Z8"
-         }
-         }).done(function(data) {
-         alert("Retrieved " + data.length + " records from the dataset!");
-         //console.log(data);
-         var aDatos = data;
-         var cont = 0;
-         for (var obj in aDatos) {
-         //for(var i=0; i < aDatos.length;i++){
-         //if(aDatos[obj].ofns_desc != undefined){
-         $('#tabla').append("<tr><td>" + aDatos[obj].boro_nm + "<td><td>"+ (cont+1) +"</td><tr>");
-         //$('#tabla').append("<tr><td>" + aDatos[obj].law_cat_cd + "<td><tr>");
-         //$('#tabla').append("<tr><td>" + aDatos[obj].ofns_desc + "<td><tr>");
-         //}
-         //console.log(aDatos[obj].boro_nm);
-         console.log(aDatos.length);
-         cont++;
-         
-         }
-         console.log(cont)
-         });
-         */
 
-
-
-        //MAPA
-        /*           google.charts.load('current', {
-         'packages': ['geochart'],
-         // Note: you will need to get a mapsApiKey for your project.
-         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-         'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-         });
-         google.charts.setOnLoadCallback(drawRegionsMap);
-         
-         function drawRegionsMap() {
-         var data = google.visualization.arrayToDataTable([
-         ['Boro', 'Crimes'],
-         ['BROOKLYN', 200],
-         ['MANHATTAN', 300],
-         ['QUEENS', 400],
-         ['BRONX', 500],
-         ['STATEN ISLAND', 600]
-         ]);
-         
-         var options = {
-         region: 'US',
-         displayMode: 'markers',
-         colorAxis: {colors: ['green', 'blue']}
-         };
-         
-         
-         var chart = new google.visualization.GeoChart(document.getElementById('regions_div1'));
-         
-         chart.draw(data, options);
-         }
-         */
         //BUBBLE
         google.charts.load('current', {'packages': ['corechart']});
         google.charts.setOnLoadCallback(drawSeriesChart);
@@ -111,7 +45,7 @@
             var data = google.visualization.arrayToDataTable(ajax_bubbleChart());
 
             var options = {
-                title: 'Correlation between population, crimes and population density in NYC boros',
+                title: 'Correlation between population, crimes and population density in NYC boroughs',
                 hAxis: {title: 'Population'},
                 vAxis: {title: 'Crimes'},
                 bubble: {textStyle: {fontSize: 11}},
@@ -131,7 +65,7 @@
             $.ajax({
                 type: 'POST',
                 async: false,
-                url: "ajax/ajax_offenseByBoro.php",
+                url: "ajax/ajax_pieChart.php",
             }).done(function (data) {
                 var datos = JSON.parse(data);
                 for (var i = 0; i < datos.length; i++) {
@@ -144,17 +78,10 @@
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
 
-            var data = google.visualization.arrayToDataTable(ajax_offenseByBoro()/*[
-             ['Boro', 'Number crimes'],
-             ['BROOKLYN', 11],
-             ['MANHATTAN', 2],
-             ['QUEENS', 2],
-             ['BRONX', 2],
-             ['STATEN ISLAND', 7]
-             ]*/);
+            var data = google.visualization.arrayToDataTable(ajax_offenseByBoro());
 
             var options = {
-                title: 'Crimes in New York by boro',
+                title: 'Crimes in New York by borough',
                 is3D: true,
             };
 
@@ -163,11 +90,8 @@
         }
 
 
-        //COLUMNAS
-
-
-
-        function ajax_countOffenseByBoro() {
+        //COLUMSCHART
+        function ajax_ajax_columsChart() {
             var aData = [];
 
             function indexOffense(offense, aOffenses) {
@@ -189,7 +113,7 @@
             $.ajax({
                 type: 'POST',
                 async: false,
-                url: "ajax/ajax_countOffenseByBoro.php",
+                url: "ajax/ajax_columsChart.php",
             }).done(function (data) {
                 var datos = JSON.parse(data);
 
@@ -263,19 +187,12 @@
 
         function drawVisualization() {
             // Some raw data (not necessarily accurate)
-            var data = google.visualization.arrayToDataTable(ajax_countOffenseByBoro()/*[
-             ['Boro', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea'],
-             ['BROOKLYN', 165, 938, 522, 998, 450, 614.6, 165, 938, 522, 998],
-             ['MANHATTAN', 135, 1120, 599, 1268, 288, 682, 135, 1120, 599, 1268],
-             ['QUEENS', 157, 1167, 587, 807, 397, 623, 157, 1167, 587, 807],
-             ['BRONX', 139, 1110, 615, 968, 215, 609.4, 139, 1110, 615, 968],
-             ['STATEN ISLAND', 136, 691, 629, 1026, 366, 569.6, 136, 691, 629, 1026]
-             ]*/);
+            var data = google.visualization.arrayToDataTable(ajax_ajax_columsChart());
 
             var options = {
-                title: 'Crimes in New York by boro',
+                title: 'Crimes in New York by borough and type offense',
                 vAxis: {title: 'Numbers of crimes'},
-                hAxis: {title: 'Boro'},
+                hAxis: {title: 'Boroughs'},
                 seriesType: 'bars',
                 series: {10: {type: 'line'}}
             };
@@ -283,11 +200,6 @@
             var chart = new google.visualization.ComboChart(document.getElementById('chart_div1'));
             chart.draw(data, options);
         }
-
-
-
-
-
     });
 </script>
 

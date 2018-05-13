@@ -4,7 +4,7 @@ ini_set('memory_limit', '1024M');
 // Estructura de $data: [BORO, poblacion, crimenes, crime/population, densidad poblacion] 
 $data = [[]];
 $offenseByBoro = [];
-$crimeFile = fopen("../csv/offenseByBoro.csv", "r");
+$crimeFile = fopen("../csv/offense_groupby_boro.csv", "r");
 $linea = fgets($crimeFile);
 $i = 0;
 // Bucle que guarda un array asociativo de tipo $offenseByBoro["boro"] = # 
