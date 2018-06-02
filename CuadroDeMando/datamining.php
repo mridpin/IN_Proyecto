@@ -58,7 +58,7 @@ include 'header.php';
                     } else if(isNaN(parseFloat(aDatos[i][j]))){
                         cadHTML += "";
                     } else {
-                        cadHTML += parseFloat(aDatos[i][j]).toFixed(3);
+                        cadHTML += parseFloat(aDatos[i][j]).toFixed(2);
                     }
                     
                     cadHTML += "</td>";
