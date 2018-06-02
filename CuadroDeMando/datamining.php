@@ -46,19 +46,19 @@ include 'header.php';
                 if (i == 0) {
                     cadHTML += "<th>" + aDatos[i][j].replace(/['"]+/g, '') + "</th>";
                 } else {
-                    if( aDatos.length-1 == i && aDatos[i].length-2 == j && numTabla == 0){ //Colo
+                    if( aDatos.length-1 == i && aDatos[i].length-2 == j && numTabla == 0){ //Pinto el fondo accuracy en rojo y texto en negrita
                         cadHTML += "<td class='important-value'>";
                     } else {
                         cadHTML += "<td>";
                     }
                     
                     
-                    if(aDatos[i][j] == "" || j == 0){
+                    if(aDatos[i][j] == "" || j == 0){ // Si la cadena es vacia y la columna es la primera deja el texto y le quito las comillas dobles
                         cadHTML += aDatos[i][j].replace(/['"]+/g, '');
-                    } else if(isNaN(parseFloat(aDatos[i][j]))){
+                    } else if(isNaN(parseFloat(aDatos[i][j]))){ // Si es un NaN deja cadena en blanco
                         cadHTML += "";
                     } else {
-                        cadHTML += parseFloat(aDatos[i][j]).toFixed(2);
+                        cadHTML += parseFloat(aDatos[i][j]).toFixed(2); // Pinto los numeros con 2 decimales
                     }
                     
                     cadHTML += "</td>";
