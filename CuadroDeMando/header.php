@@ -72,6 +72,14 @@
                 font-size: 10px;
             }
             
+            .important-value {
+                font-weight: bold;
+                font-size: 12px;
+                background-color: #F6CECE;
+                border-color: red;
+                
+            }
+            
         </style>
     </head>
       <body>
