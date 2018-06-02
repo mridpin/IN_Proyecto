@@ -63,6 +63,15 @@
                 top: 10px;
                 z-index: 5;
             }
+            
+            th {
+                font-size: smaller;
+            }
+            
+            td {
+                font-size: 10px;
+            }
+            
         </style>
     </head>
       <body>
@@ -86,7 +95,6 @@
         <li><a href="index.php">Report <span class="sr-only">(current)</span></a></li>
         <li><a href="heatmaps.php">Heatmaps*</a></li>
         <li><a href="map-police-stations.php">Police Stations Location</a></li>
-        <li><a href="map-police-stations.php">Offense custered*</a></li>
         <li><a href="datamining.php">Prediction of Data Mining</a></li>
       </ul>
       
