@@ -44,12 +44,17 @@ include 'header.php';
             var cadHTML = "<tr>";
             for (var j = 0; j < aDatos[i].length; j++) {
                 if (i == 0) {
-                    cadHTML += "<th>" + aDatos[i][j] + "</th>";
+                    cadHTML += "<th>" + aDatos[i][j].replace(/['"]+/g, '') + "</th>";
                 } else {
-                    cadHTML += "<td>";
+                    if( aDatos.length-1 == i && aDatos[i].length-2 == j && numTabla == 0){ //Colo
+                        cadHTML += "<td class='important-value'>";
+                    } else {
+                        cadHTML += "<td>";
+                    }
                     
-                    if(aDatos[i][j] == ""){
-                        cadHTML += aDatos[i][j];
+                    
+                    if(aDatos[i][j] == "" || j == 0){
+                        cadHTML += aDatos[i][j].replace(/['"]+/g, '');
                     } else if(isNaN(parseFloat(aDatos[i][j]))){
                         cadHTML += "";
                     } else {
