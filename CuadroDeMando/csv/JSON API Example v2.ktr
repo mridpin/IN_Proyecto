@@ -780,7 +780,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>https://data.cityofnewyork.us/resource/7x9x-zpz6.json?$where=lat_lon%20is%20not%20null&amp;$limit=999</nullif>
+        <nullif>https://data.cityofnewyork.us/resource/7x9x-zpz6.json?$where=lat_lon%20is%20not%20null&amp;$limit=999999</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
