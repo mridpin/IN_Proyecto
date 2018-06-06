@@ -10,7 +10,7 @@ include 'header.php';
             <!-- Default panel contents -->
             <div class="panel-heading text-center"><h3>Accuracy statistics</h3></div>
             <div class="panel-body">
-                <p> En esta tabla se muestra ...</p>
+                <p>This table shows the accuracy of the prediction per offense type and the final accuracy of the model</p>
             </div>
             <table id="table_datamining0" class="table table-striped">
                 <thead id="table_thead0"></thead>
@@ -27,7 +27,7 @@ include 'header.php';
             <!-- Default panel contents -->
             <div class="panel-heading text-center"><h3>Confusion matrix</h3></div>
             <div class="panel-body">
-                <p>En esta tabla se muestra ...</p>
+                <p>This table shows the confusion matrix of the predictions</p>
             </div>
             <table id="table_datamining1" class="table table-striped">
                 <thead id="table_thead1"></thead>
